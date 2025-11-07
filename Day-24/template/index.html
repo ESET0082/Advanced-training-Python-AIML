@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Booking Feature Input</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #d7e1ec, #ffffff);
+        margin: 0;
+        padding: 40px;
+        color: #333;
+      }
+
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+      }
+
+      form {
+        background: #fff;
+        max-width: 800px;
+        margin: auto;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #2c3e50;
+      }
+
+      input[type="number"],
+      input[type="text"],
+      input[type="date"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 6px rgba(52, 152, 219, 0.3);
+      }
+
+      .btn-submit {
+        display: block;
+        width: 100%;
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: 0.3s;
+      }
+
+      .btn-submit:hover {
+        background: #2c80b4;
+      }
+
+      .section-title {
+        font-size: 18px;
+        margin: 25px 0 10px;
+        color: #2980b9;
+        border-bottom: 2px solid #2980b9;
+        display: inline-block;
+        padding-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Hotel Booking Feature Input</h2>
+    <form action="/predict" method="post">
+      <div class="section-title">Categorical Features</div>
+
+      <div class="form-group">
+        <label for="hotel">Hotel</label>
+        <select id="hotel" name="hotel">
+          <option>Resort Hotel</option>
+          <option>City Hotel</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="arrival_date_month">Arrival Month</label>
+        <label for="arrival_date_month">Arrival Month:</label>
+        <select name="arrival_date_month" id="arrival_date_month" required>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="meal">Meal</label>
+        <select id="meal" name="meal">
+          <option>BB</option>
+          <option>HB</option>
+          <option>FB</option>
+          <option>SC</option>
+          <option>Undefined</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="market_segment">Market Segment</label>
+        <select id="market_segment" name="market_segment">
+          <option>Online TA</option>
+          <option>Offline TA/TO</option>
+          <option>Corporate</option>
+          <option>Direct</option>
+          <option>Groups</option>
+          <option>Complementary</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="distribution_channel">Distribution Channel</label>
+        <select id="distribution_channel" name="distribution_channel">
+          <option>TA/TO</option>
+          <option>Direct</option>
+          <option>Corporate</option>
+          <option>GDS</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="reserved_room_type">Reserved Room Type</label>
+        <select id="reserved_room_type" name="reserved_room_type">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+          <option>E</option>
+          <option>F</option>
+          <option>G</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="deposit_type">Deposit Type</label>
+        <select id="deposit_type" name="deposit_type">
+          <option>No Deposit</option>
+          <option>Refundable</option>
+          <option>Non Refund</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="customer_type">Customer Type</label>
+        <select id="customer_type" name="customer_type">
+          <option>Transient</option>
+          <option>Contract</option>
+          <option>Group</option>
+          <option>Transient-Party</option>
+        </select>
+      </div>
+
+      <div class="section-title">Numerical Features</div>
+
+      <div class="form-group">
+        <label for="lead_time">Lead Time</label>
+        <input
+          type="number"
+          id="lead_time"
+          name="lead_time"
+          min="0"
+          value="30"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="arrival_date_week_number">Arrival Week Number</label>
+        <input
+          type="number"
+          id="arrival_date_week_number"
+          name="arrival_date_week_number"
+          min="1"
+          max="52"
+          value="27"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="arrival_date_day_of_month">Arrival Day of Month</label>
+        <input
+          type="number"
+          id="arrival_date_day_of_month"
+          name="arrival_date_day_of_month"
+          min="1"
+          max="31"
+          value="15"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="stays_in_weekend_nights">Stays in Weekend Nights</label>
+        <input
+          type="number"
+          id="stays_in_weekend_nights"
+          name="stays_in_weekend_nights"
+          min="0"
+          value="2"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="stays_in_week_nights">Stays in Week Nights</label>
+        <input
+          type="number"
+          id="stays_in_week_nights"
+          name="stays_in_week_nights"
+          min="0"
+          value="3"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="adults">Adults</label>
+        <input type="number" id="adults" name="adults" min="1" value="2" />
+      </div>
+
+      <div class="form-group">
+        <label for="children">Children</label>
+        <input type="number" id="children" name="children" min="0" value="0" />
+      </div>
+
+      <div class="form-group">
+        <label for="babies">Babies</label>
+        <input type="number" id="babies" name="babies" min="0" value="0" />
+      </div>
+
+      <div class="form-group">
+        <label for="is_repeated_guest">Is Repeated Guest (0 or 1)</label>
+        <input
+          type="number"
+          id="is_repeated_guest"
+          name="is_repeated_guest"
+          min="0"
+          max="1"
+          value="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="previous_cancellations">Previous Cancellations</label>
+        <input
+          type="number"
+          id="previous_cancellations"
+          name="previous_cancellations"
+          min="0"
+          value="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="previous_bookings_not_canceled"
+          >Previous Bookings Not Canceled</label
+        >
+        <input
+          type="number"
+          id="previous_bookings_not_canceled"
+          name="previous_bookings_not_canceled"
+          min="0"
+          value="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="required_car_parking_spaces"
+          >Required Car Parking Spaces</label
+        >
+        <input
+          type="number"
+          id="required_car_parking_spaces"
+          name="required_car_parking_spaces"
+          min="0"
+          value="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="total_of_special_requests">Total of Special Requests</label>
+        <input
+          type="number"
+          id="total_of_special_requests"
+          name="total_of_special_requests"
+          min="0"
+          value="0"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="adr">Average Daily Rate (ADR)</label>
+        <input type="number" id="adr" name="adr" step="0.01" value="100" />
+      </div>
+
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </body>
+</html>
